@@ -175,19 +175,25 @@
     <script src="js/main.js"></script>
 
     <script>
-        var d = new Date("April 26, 2025 18:00:00");
-        // default example
-        simplyCountdown('.simply-countdown-one', {
-            year: d.getFullYear(),
-            month: d.getMonth() + 1,
-            day: d.getDate()
-        });
+        // Set the correct UTC time for April 26, 2025, 19:00 Cairo Time (UTC+2)
 
-        //jQuery example
+        var eventDate = new Date(Date.UTC(2025, 3, 26, 20, 0, 0)); // UTC time (subtracting 2 hours)
+        
+        simplyCountdown('.simply-countdown-one', {
+            year: eventDate.getUTCFullYear(),
+            month: eventDate.getUTCMonth() + 1,
+            day: eventDate.getUTCDate(),
+            hours: eventDate.getUTCHours(),
+            minutes: eventDate.getUTCMinutes(),
+            enableUtc: false
+        });
+    
         $('#simply-countdown-losange').simplyCountdown({
-            year: d.getFullYear(),
-            month: d.getMonth() + 1,
-            day: d.getDate(),
+            year: eventDate.getUTCFullYear(),
+            month: eventDate.getUTCMonth() + 1,
+            day: eventDate.getUTCDate(),
+            hours: eventDate.getUTCHours(),
+            minutes: eventDate.getUTCMinutes(),
             enableUtc: false
         });
     </script>
